@@ -17,16 +17,14 @@ var Movies = Backbone.Collection.extend({
 
   initialize: function() {
     // your code here
-    this.set('comparator', 'title');
   },
 
   comparator: 'title',
 
   sortByField: function(field) {
     // your code here
-    this.set('comparator', field);
-    // this.sort(field);
-    sort(field);
+    this.comparator = field;
+    this.sort(field);
     // console.log(this.comparator);
   }
 
@@ -95,7 +93,6 @@ var MoviesView = Backbone.View.extend({
 
   render: function() {
     this.$el.empty();
-    console.log('re render moviesView');
     this.collection.forEach(this.renderMovie, this);
   },
 
